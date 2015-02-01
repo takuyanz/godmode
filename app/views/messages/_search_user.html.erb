@@ -1,0 +1,15 @@
+
+
+<% if @search_results.blank? %>
+  <p>no users found</p>
+<% else%>
+  <% @search_results.each do |user| %>
+    <div user_id="<%= user.id %>" class="user-result table">
+      <%= image_tag(user.image_url, class: "search-result-image") %>
+      <p class="search-result-nickname"><a class="message-pjax" href="/messages/<%= user.nickname %>"><%= user.nickname %></a></p>
+      <div class="star-table">
+        <span user_id="<%= user.id %>" class="glyphicon glyphicon-star star" data-toggle="tooltip" title="clip"></span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

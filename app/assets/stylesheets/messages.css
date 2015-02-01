@@ -1,0 +1,152 @@
+
+/* --------- message index ---------- */
+
+.message-outsidest-box {
+  margin: 15px
+}
+
+.hide {
+  display: none
+}
+
+.hide-user {
+  display: none !important;
+}
+
+.padding-left-none {
+  padding-left: 0px !important;
+}
+
+.padding-right-none {
+  padding-right: 0px !important;
+}
+
+
+/* --------- search result show ---------- */
+
+.message-search-box {
+  border-right: solid 1px #DDDDDD;
+}
+
+.search-user-input {
+  width: 90%; 
+  padding: 2px; 
+  outline: none;
+}
+
+.search-user-result-outsidebox {
+  margin-top: 10px;
+}
+
+.user-result {
+  padding-top: 9px;
+  padding-bottom: 9px !important;
+  padding-left: 3px;
+  width: 90%;
+}
+
+.user-result:hover {
+  cursor: pointer;
+  background-color: #f8f8f8;
+}
+
+.active-result {
+  background-color: #f8f8f8;
+}
+
+.table {
+  display: table;
+  margin-bottom: 0px !important;
+}
+
+.search-result-image {
+  width: 30px; 
+  height: 30px; 
+  border-radius: 15px; 
+  display: table-cell;
+}
+
+.search-result-nickname {
+  display: table-cell;
+  vertical-align: middle;
+  text-align:left;
+}
+
+.glyphicon-star {
+  cursor: pointer;
+  top: -6px !important;
+}
+
+.star-active {
+  color: #ffff1b !important;
+}
+
+.star-table {
+  display: table-cell;
+  text-align: right
+}
+
+/* --------- messages show ---------- */
+
+.table-message {
+  display: table
+}
+
+/* --TODO ---*/
+.message-box-height {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.message-content-box {
+  padding-left: 5px;
+  display: table-cell;
+  vertical-align: top
+}
+.message-nickname {
+  margin-bottom: 5px !important
+}
+
+.message-text {
+  margin-bottom: 8px !important;
+}
+
+.message-image {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  display: table-cell;
+}
+
+.message-created-at {
+  font-size: 12px;
+  color: gray;
+}
+
+/* --------- messages new ---------- */
+
+.message-new-box {
+  margin-top: 50px
+}
+
+.message-textarea {
+  width: 100%;
+  min-height: 55px;
+  resize: vertical;
+}
+
+.submit-message-style {
+  cursor: pointer;
+}
+
+.glyphicon-thumbs-up {
+  font-size: 20px;
+}
+
+
+/* ----------- messages seen ---------*/
+
+.seen-status-style {
+  font-size: 11px;
+  color: grey;
+}

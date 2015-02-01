@@ -1,0 +1,29 @@
+
+<div class="timeline-width">
+  <div class="timeline-background">
+    <div class="timeline-padding">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <!-- displaying albums and likes: partial because 'load more by ajax'-->
+        <div class="reload-box">
+          <span id="reload" class="glyphicon glyphicon-repeat"></span>
+          <div id="new_events">
+          </div>
+        </div>
+        <div id="events_box">
+          <%= render "show_events" %>
+        </div>
+        <% if @events.present? %>
+        <div class="load-more-margin align-center">
+          <button id="load_more" class="load-more-button">Load more</button>
+        </div>
+        <% end %>
+      </div> 
+    </div>
+  </div>
+</div>
+<div class="takuya-matsumoto-production">
+  @<a href="https://www.wantedly.com/users/12345367" target="_blank" class="takuya-matsumoto-production-link">Takuya Matsumoto Production</a>
+</div>
+</div>
+    

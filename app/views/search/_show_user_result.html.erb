@@ -1,0 +1,16 @@
+
+<h4 class="search-result-title">Users</h4>
+
+<div id="search_result_user_box" style="padding: 15px 0px">
+  <%= render 'create_user_result' %>
+</div>
+
+<% if @users.present? %>
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div id="load_more_user_search" class="load-more-users-search align-center">
+        <button id="load_more_users_search" class="load-more-button">Load more</button>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+
+<div style="display:table">
+  <div style="display: table-cell">
+    <%= image_tag @reply.user.image_url, class: "reply-user-image" %>
+  </div>
+  <div style="display: table-cell; padding-left: 5px">
+    <%= link_to @reply.user.nickname, @reply.user.nickname, class: "reply-nickname-text" %>
+    <p class="reply-nickname-text"><%= @reply.reply_text %></p>
+  </div>
+</div>

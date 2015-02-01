@@ -1,0 +1,188 @@
+
+/*----------- Album --------------*/
+
+.album-show-background {
+  width:750px; 
+  margin: 0 auto; 
+  background-color: #edeeef; 
+  background-image: url('/assets/gray_jean.png');
+}
+
+.album-show-space {
+  margin-top:70px; 
+  margin-bottom: 50px;
+  padding-bottom: 50px; 
+  padding-top: 30px;
+}
+
+.albums-all-box {
+}
+
+.album-box {
+  background-color: white;
+  margin-top: 25px
+}
+
+.album-box:hover {
+  outline: solid 1px #0c6;
+}
+
+.album-box-padding-inside {
+  padding: 20px;
+}
+
+.font-bold {
+  font-weight: 900;
+}
+
+/*----------- Picture Style --------------*/
+
+.glyphicon-heart {
+  top: 2.5px !important;
+  cursor: pointer;
+}
+
+.liked {
+  color: #ff4d4d;
+}
+
+.like-box {
+ background-color: white; 
+ margin-top: 25px
+}
+
+.like-box:hover {
+  outline: solid 1px #0c6;
+}
+
+.like-box-padding {
+  padding: 10px;
+}
+
+.like-box-p {
+  margin: 0px !important
+}
+
+.count-font{
+  font-family: Arial Black;
+  font-size: 45px;
+  color: white;
+  margin: 0px;
+}
+
+.picture-timeline {
+  margin-top: 5px;
+  cursor: zoom-in;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+}
+
+/*----------- Picture Modal --------------*/
+
+div[id*="picture_modal_"] {
+  background: none repeat scroll 0 0 #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+
+/*----------- Story Modal --------------*/
+
+.read-story-style {
+  cursor: pointer;
+}
+
+.read-story-style:hover {
+  text-decoration: underline;
+}
+
+div[id*="read_story_modal_"] {
+  background: none repeat scroll 0 0 #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  display: none;
+  width: 400px;
+}
+
+.story-modal {
+  padding: 30px;
+}
+
+.story-modal-heading-style {
+  text-decoration: underline; 
+  font-weight: 900;
+}
+
+/*----------- Delete, Comment and heart --------------*/
+
+.end-of-albums {
+  padding: 8px; 
+  display: table;
+  width: 100%;
+}
+
+.end-of-albums-left {
+  display: table-cell;
+  text-align: left;
+}
+
+.end-of-albums-right {
+  display: table-cell;
+  text-align: right;
+}
+
+.glyphicon-trash {
+  font-size: 11px;
+  top: 2.5px;
+  cursor: pointer;
+}
+
+/*----------- popover comment --------------*/
+
+.popover {
+  z-index: 0;
+  padding: 0px !important;
+}
+
+.popover-title {
+  color: white;
+  background-color: #31aa62 !important;
+}
+
+.comment-content {
+  outline: none;
+  width: 200px;
+  height: 150px;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.popcomment-submit {
+  text-align: right;
+  display: block;
+  cursor: pointer;
+}
+
+a#popover_comment_submit {
+  color: #0c6 !important;  
+}
+
+.popover-comment-cancel {
+  color: #DDDDDD !important;
+  cursor: pointer;
+  font-size: 12px !important;
+}
+
+
+/*----------- delete album --------------*/
+
+
+div[id*="album_delete_modal_"] {
+  background: none repeat scroll 0 0 #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  display: none;
+  width: 300px;
+}
+
+.delete-modal-padding {
+  padding: 30px
+}

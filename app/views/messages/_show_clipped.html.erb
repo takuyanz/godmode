@@ -1,0 +1,12 @@
+
+<% if @clipped_users.present? %>
+  <% @clipped_users.each do |clipped| %>
+    <div user_id="<%= clipped.user.id %>" class="user-result table">
+    <%= image_tag(clipped.user.image_url, class: "search-result-image") %>
+      <p class="search-result-nickname"><a class="message-pjax" href="/messages/<%= clipped.user.nickname %>"><%= clipped.user.nickname %></a></p>
+      <div class="star-table">
+        <span user_id="<%= clipped.user.id %>" class="glyphicon glyphicon-star star star-active" data-toggle="tooltip" title="unclip"></span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

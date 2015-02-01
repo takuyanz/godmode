@@ -1,0 +1,28 @@
+
+
+<div class="padding-from-top">
+  <div class="message-outsidest-box">
+  <div class="row">
+    <div class="col-md-3 padding-left-none">
+      <div class="message-search-box"> 
+        <input id="search_user" type="text" placeholder="who are you messaging to?" class="search-user-input" value="<%= params[:id] %>">
+        <div class="search-user-result-outsidebox">
+          <div id="clipped_users">
+            <%= render "show_clipped" %>
+          </div>
+          <!-- render partial search result ajax-->
+          <div id="search_user_result">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- render partial message content ajax -->
+    <div class="col-md-9 padding-right-none">
+      <div id="message">
+        <%= render "show_message" %>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

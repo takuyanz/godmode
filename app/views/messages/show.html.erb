@@ -1,0 +1,26 @@
+
+<p>You are now talking with <b><u><%= @message_to_user.nickname %></u></b></p>
+<div class="message-box">
+  <div class="message-show-box">
+    <% if !@messages.exists? %>
+      <p>No messages to show</p>
+    <% else%>
+      <% @messages.each do |message| %>
+        <div message_id="<%= message.id %>" class="table-message"> 
+          <%= link_to image_tag(message.user.image_url, class: "message-image"), "/users/#{ message.user.nickname }" %>
+          <div class="message-content-box">
+            <p class="message-nickname"><%= link_to message.user.nickname, "/users/#{message.user.nickname}"  %></p>
+            <p class="message-text"><%= raw(message.text) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="message-new-box">
+    <textarea placeholder="write a reply" id="message_textarea" class="message-textarea"></textarea>
+    <div id="thumb_up">
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+    </div>
+    <a id="submit_message" message_to_id="<%= @message_to_user.id %>" class="submit-message-style">submit</a>
+  </div>
+</div>

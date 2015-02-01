@@ -1,0 +1,6 @@
+
+<div class="like-box">
+  <div class="like-box-padding">
+    <p class="like-box-p"><%= link_to album.user.nickname, "/users/#{album.user.nickname}" %> liked the album "<%= link_to album.album.album_name, "/albums/#{album.album.id}" %>" by <%= album.album.user.nickname %></p>
+  </div>
+</div>

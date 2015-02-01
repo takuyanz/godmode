@@ -1,0 +1,216 @@
+
+/* ---------- User Top ------------- */
+
+/* ---------- User Info ------------- */
+
+.profile-background {
+  width: 100%;
+  height: auto;
+  /* background-image: url("/assets/noisey_net.png") */
+}
+
+.padding-from-top {
+  padding-top: 100px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 40px;
+  width: 70px;
+  height: 70px;
+}
+
+.username-profile {
+  font-family: Verdana;
+  color: #444444;
+  margin-top:10px;
+  font-size: 40px;
+  font-weight: 900 !important;
+  text-decoration: underline;
+}
+
+
+.bio-input-style {
+  text-decoration: underline; 
+  border: none; 
+  outline: none; 
+  text-align: center; 
+  color: gray; 
+  font-size: 15px;
+  width: 500px
+}
+
+.bio-style {
+  color: gray;
+  outline: none;
+  font-size: 17px;
+}
+
+.bio-width-centered {
+  width: 80%;
+  margin: 0px auto;
+}
+
+.user-info-box {
+  font-size: 20px;
+}
+
+.user-info-style {
+  font-family: Tahoma;
+  color: #555555;
+  font-size: 15px;
+}
+
+.count-color {
+  color: #555555;
+}
+
+a.follow {
+  cursor:pointer;
+  color: #0c6;
+  text-decoration: underline;
+  font-size: 18px;
+  min-width: 70px;
+}
+
+a.follow:hover {
+  filter:alpha(opacity=80);
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+
+/* -------- follow modal --------- */
+
+.follow-modal {
+  padding: 30px
+}
+
+.show-follow:hover {
+  text-decoration: underline;
+  color: #31aa62;
+}
+
+.show-follow:focus {
+  text-decoration: underline;
+  color: #31aa62;
+}
+
+.show-follow:active {
+  text-decoration: underline;
+  color: #31aa62;
+}
+
+.no-textdecoration:hover {
+  text-decoration: none !important;
+}
+
+#followings {
+  background: none repeat scroll 0 0 #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  display: none;
+  width: 400px;
+  height: auto;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+#followers {
+  background: none repeat scroll 0 0 #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  display: none;
+  width: 400px;
+  height: auto;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.no-follow {
+  padding-top: 30px; 
+  padding-bottom: 30px;
+}
+
+.glyphicon-user {
+  font-size: 30px;
+}
+
+.no-follow-text {
+  margin-top: 5px;
+}
+
+.modal-follow-user {
+  margin-bottom: 10px; 
+}
+
+.modal-follow-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.modal-follow-nickname {
+  font-size: 15px
+}
+
+.modal-follow-button {
+  color: #0c6; 
+  font-size: 13px; 
+  text-decoration: underline; 
+  cursor: pointer;
+}
+
+/* -------- tabepane lists --------- */
+
+.tabpane-padding {
+  padding-top: 50px;
+}
+
+.tab-content {
+  width: 750px !important; 
+  margin: 0 auto; 
+  background-color: #edeeef; 
+  background-image: url('/assets/gray_jean.png');
+}
+
+.no-albums {
+  padding-top: 30px; 
+  padding-bottom: 30px; 
+  text-align: center
+}
+
+.nav-tab-width {
+  width: 750px !important; 
+  margin: 0 auto
+}
+
+ul.nav-justified li a {
+  border-bottom: 0px !important;
+  border-right: 0px !important;
+  border-left: 0px !important;
+  border-radius: 0px !important;
+  color: gray !important;
+}
+
+ul.nav-tabs a:hover {
+  background-color: #e3e3e3 !important;
+  color: #0c6 !important;
+}
+
+.nav-tabs.nav-justified>.active>a {
+  color: #0c6 !important;
+}
+
+.glyphicon-picture {
+  font-size: 30px;
+}
+
+.no-albums-text {
+  margin-top: 5px;
+}
+
+
+/* -------- followers and followings --------- */
+
+

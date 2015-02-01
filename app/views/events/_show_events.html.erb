@@ -1,0 +1,87 @@
+
+<% if @events.present? %>
+<div class="albums-all-box">
+  <% @events.each do |event| %>
+    <% if event.album_id.present? %>
+      <div id="album_box_<%= event.album.id %>" class="album-box">
+
+        <div class="album-box-padding-inside align-center"> 
+          <p>
+          <%= image_tag event.user.image_url, style: "width: 20px; height: 20px; border-radius: 10px" %>
+          <% if current_user.id == event.user.id %>
+            <%= link_to "You", event.user.nickname %>
+          <% else %>
+            <%= link_to event.user.nickname, "/users/#{event.user.nickname}" %>
+          <% end %>
+          / 
+          <span class="font-bold"><%= event.album.album_name %></span>
+          <% if event.album.story.present? %>
+             / <a rel="leanModal" href="#read_story_modal_<%= event.album.id %>" class="read-story-style">read story</a>
+            <div id="read_story_modal_<%= event.album.id %>">
+              <div class="story-modal">
+                <div class="story-modal-heading">
+                  <p class="story-modal-heading-style">"<%= event.album.album_name %>"</p>
+                </div>
+                <div class="story-modal-content">
+                  <p><%= event.album.story %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          </p>
+          <% event.album.uploaded_pictures.each do |picture| %>
+            <%= image_tag picture.photo.url(:medium), class: "picture-timeline", rel: "leanModal", href: "#picture_modal_#{picture.id}", onload: "$(this).fadeIn(1500);" %>
+            <div id="picture_modal_<%= picture.id %>">
+              <%= image_tag picture.photo.url(:large) %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="end-of-albums" album_id="<%= event.album.id %>">
+          <% if event.album.user.id == current_user.id %>
+          <div class="end-of-albums-left">
+            <span class="glyphicon glyphicon-trash" rel="leanModal" href="#album_delete_modal_<%= event.album.id %>"></span>
+            <div id="album_delete_modal_<%= event.album.id %>" class="delete-album">
+              <div class="delete-modal-padding">
+                <div class="delete-modal-heading">
+                  <p>Are you sure you want to delete this album?</p>
+                </div>
+                <div class="delete-modal-content" album_id="<%= event.album.id %>">
+                  <button class="delete-button">Delete</button>
+                  <button class="cancel-delete">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <div class="end-of-albums-right">
+            <span class="glyphicon glyphicon-heart <%= "liked" if current_user.liked?(event.album) %>" id="change_like" data-toggle="tooltip" title="<%= event.album.likes.count %>"></span> 
+            <a href="#" id="popover" class="a-tag" album_id="<%= event.album.id %>" data-toggle="popover" data-placement="top" data-title="Comments will be shown in Freetalk tab" data-content="<p class='comment-content' contenteditable='true'>@<%= event.album.album_name %>:</p><span class='popcomment-submit'><a id='popover_comment_submit' user_id='<%= event.album.user.id %>'>Submit</a></span>" data-html="true">Comment</a>
+          </div>
+        </div>
+
+      </div> <!-- end of album box -->
+
+    <% else %>
+      <div class="like-box">
+        <div class="like-box-padding">
+          <p class="like-box-p">
+            <%= image_tag event.like.user.image_url, style: "width: 20px; height: 20px; border-radius: 10px" %>
+            <%= link_to event.like.user.nickname, "/users/#{event.like.user.nickname}" %> liked the album "<%= link_to event.like.album.album_name, "/albums/#{event.like.album.id}" %>" by
+            <% if current_user.id == event.like.album.user.id %>
+              you
+            <% else %>
+              <%= link_to event.like.album.user.nickname, "/users/#{event.like.album.user.nickname}" %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<% else %>
+  <div id="no_more_events" class="align-center no-events-to-show-padding">
+    <a href="#" class="flash-icon-link"><span class="glyphicon glyphicon-flash"></span></a>
+    <h4 class="no-events-to-show-text">No Events to Show</h4>
+  </div>
+<% end %>

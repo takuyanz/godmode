@@ -1,0 +1,94 @@
+
+/* ------ left side --------- */
+.search-option-box {
+  padding: 10px 10px;
+}
+
+.search-option-box:hover {
+  background-color: #f8f8f8;
+}
+
+.search-option-box-active {
+  background-color: #f8f8f8;
+}
+
+.search-option {
+  color: #9d9d9d
+}
+
+.search-option:hover {
+  color: #31aa62;
+  text-decoration: none
+}
+
+.search-option-active {
+  font-weight: 900;
+  color: #31aa62 !important
+}
+
+.search-option-active:hover {
+  color: #31aa62
+}
+
+
+/* -------- search result shared --------- */
+
+.search-result-title {
+  color: #31aa62;
+  font-weight: 900;
+  margin-top: 0px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  width: 100%;
+}
+
+/* -------- search result users  --------- */
+
+.search-result {
+  padding: 15px 0;
+  margin: -5px
+}
+
+.search-result:hover {
+ background-color:#f8f8f8;
+}
+
+.search-result-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+}
+
+.all-search-result-nickname {
+  margin-bottom: 0px !important;
+  font-weight: 900;
+  font-size: 16px; 
+  color: #555555
+}
+
+.all-search-result-nickname:hover {
+  color: #444444;
+}
+
+.load-more-users-search {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.no-user-search-result {
+  padding-top: 30px; 
+  padding-bottom: 30px;
+}
+
+.no-user-search-result-text {
+}
+
+/* -------- search result albums --------- */
+
+
+.search-result-album-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <title>Godmode</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", 'https://fonts.googleapis.com/css?family=Open+Sans', :media => "all" %>
+  <%= stylesheet_link_tag "application", 'https://fonts.googleapis.com/css?family=Pacifico', :media => "all" %>
+</head>
+<body style="height:100%">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div>
+        <%= link_to "Godmode", "#", class: "navbar-brand header-word-padding" %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="overflow-x">
+    <div class="row" style="height:100%">
+      <div class="col-md-6 col-sm-6 col-xs-12 first-col">
+        <div class="background-image">
+          <div class="padding-content">
+            <h1 class="godmode-font godmode-title">Godmode</h1>
+            <h3 class="subtitle">Collection of amazing albums</h3>
+            <button id="signin" onclick="location.href='/auth/twitter'">Sign in with Twitter</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-6 second-col">
+        <div class="padding-second-content">
+          <div class="content-width">
+            <p class="description">Godmode is an album sharing platform where you can only upload <span style="color: #ff4d4d;">three</span> pictures per album. Spread the goodness!</p>
+            <img src='/assets/Godmode.png' width="100%">
+            <div style="margin-top: 10%; margin-bottom: 60%">
+              <button id="signin" onclick="location.href='/auth/twitter'">Sign in with Twitter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

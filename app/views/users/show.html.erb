@@ -1,0 +1,77 @@
+
+<div class="profile-background">
+  <div class="align-center padding-from-top">
+    <h1 id="current_page_user_id" user_id="<%= @user.id %>">
+      <%= image_tag(@user.image_url, class: "profile-pic") %>
+      <span class="username-profile"><%= @user.nickname %></span>
+    </h1>
+    <div class="bio-width-centered">
+      <% if current_user.id == @user.id %>
+        <% if @user.bio != nil %>
+          <p id="add_bio" default_bio="0" class="bio-style"><%= @user.bio %></p>
+        <% else %>
+          <p id="add_bio" default_bio="1" class="bio-style">Add a short bio by double clicking here and press enter to submit</p>
+        <% end %>
+      <% else %>
+        <p class="bio-style"><%= @user.bio %></p>
+      <% end%>
+      <div class="user-info-box" style="<%= "margin-top: 20px;" if @user.bio != nil %>">
+        <span class="count-color"><%= @user.album_count %></span><span class="user-info-style"> <%= @user.album_count_text%></span> | 
+        <a rel="leanModal" href="#followings" class="show-follow"><span class="count-color"><%= @user.following_count %></span><span class="user-info-style"> <%= @user.following_count_text %></span></a> | 
+
+        <div id="followings">
+          <div class="follow-modal">
+            <%= render "show_followings" %>
+          </div>
+        </div>
+
+        <a rel="leanModal" href="#followers" class="show-follow"><span class="count-color"><%= @user.follower_count %></span><span class="user-info-style"> <%= @user.follower_count_text %></span></a>
+
+        <div id="followers">
+          <div class="follow-modal">
+            <%= render "show_followers" %>
+          </div>
+        </div>
+
+        <% if current_user.id != @user.id %>
+          | <a class="switch-follow follow" user_id="<%= @user.id %>">
+            <%= current_user.following?(@user.id) ? "Unfollow" : "Follow" %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpane-padding">
+    <ul class="nav nav-tabs nav-justified nav-tab-width">
+      <li class="active album"><a href="#albums" class="a-tag"data-toggle="tab">Albums</a></li>
+      <li class="freetalk"><a href="#freetalk" class="a-tag" data-toggle="tab">Free Talk</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="albums">
+    <div style="margin-bottom: 50px">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div id="user_all_albums" style="margin-top: 50px; margin-bottom: 50px">
+          <div class="albums-all-box">
+            <%= render 'shared/create_album_box' %>
+          </div>
+        </div>
+        <% if @albums.present? %>
+        <div class="load-more-margin align-center">
+          <button id="load_more_albums" class="load-more-button">Load more</button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  </div>
+  <!-- ajax -->
+  <div class="tab-pane" id="freetalk">
+  </div>
+</div>
+
+

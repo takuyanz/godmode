@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Godmode</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'  %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", 'https://fonts.googleapis.com/css?family=Pacifico', :media => "all" %>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="headerArea">
+    <div class="container-fluid">
+      <div>
+        <%= link_to "Godmode", root_path, class: "navbar-brand header-word-padding" %>
+        <%= form_tag(search_path, method: "get", class: "navbar-form navbar-left", style: "margin-top: 13px") do %>
+          <div class="header-search-wrap">
+            <%= text_field_tag(:q, nil, placeholder: "search users or albums", class: "header-search search-input") %>
+            <%= hidden_field_tag(:c, "all") %>
+            <%= button_tag(type: "submit", name: nil, class: "header-search-button-style search") do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <% end %>
+            <!--<%= submit_tag("s", name: nil) %>-->
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <ul class="nav navbar-nav navbar-right header-icons-padding"> 
+          <li class="dropdown">
+          <a href="#" id="dropdownMenu1" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag(current_user.image_url, class: "header-profile-picture-design") %> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu pull-center bullet no-collapse" aria-labelledby="dropdownMenu1" role="menu">  
+              <li role="presentation"><a href=<%= "/users/"  + current_user.nickname %> tabindex="-1">Profile</a></li>
+              <li role="presentation"><a href="/messages" tabindex="-1">Meassage</a></li>
+              <li role="presentation"><a href="/settings" tabindex="-1">settings</a></li>
+              <li role="presentation"><a href="/logout" tabindex="-1">Logout</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a id="dropdown_notification" class="dropdown-toggle globe-hover show-notifications" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            </a>
+            <ul id="notification_box" class="dropdown-menu pull-center bullet no-collapse" style="width: 300px; height: 400px" aria-labelledby="dropdown_notification" role="menu">
+              <li role="presentation" class="dropdown-header notification-header-color"><u>Notifications</u></li>
+              <!-- notification will be shown here either via websocket or ajax on click -->
+            </ul>
+          </li>
+          <li>
+          <a id="upload_picture">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" rel="leanModal" href="#upload_picture_modal"></span>
+           </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="upload_picture_modal">
+    <div class="modal-header">
+      <p class="modal-header-message">Select Up to Three Photos to Make your Album</p>
+    </div>
+    <div class="modal-content-padding">
+      <%= form_for(@album) do |f| %>
+        <%= f.label :album_name, 'Title of Album:' %><br>
+        <p><%= f.text_field :album_name, id: "album_title_input", class: "album-name-input", placeholder: "Up to 15 characters" %></p>
+        <%= f.label :story, 'Story Behind this Album:' %><br>
+        <p><%= f.text_area :story, placeholder: "This can be blank", class: "album-story-textarea"%></p>
+        <%= f.file_field :photo, id: "pictures_to_upload", multiple: true %><br>
+        <div class="error-upload">
+        </div>
+        <%= f.submit "Upload", id: "upload_albums_button", class: "upload-pictures" %>
+      <% end %>
+    </div> 
+    <a href="#" class="modal_close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+  </div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

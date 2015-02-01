@@ -1,0 +1,66 @@
+
+<% if @albums.present? %>
+  <% @albums.each do |album| %>
+  <div id="album_box_<%= album.id %>" class="album-box">
+    <div class="album-box-padding-inside align-center"> 
+      <p>
+      <% if current_user.id == album.user.id %>
+        <%= link_to "You", album.user.nickname %>
+      <% else %>
+        <%= link_to album.user.nickname, "/users/#{album.user.nickname}" %>
+      <% end %>
+      / 
+      <span class="font-bold"><%= album.album_name %></span>
+      <% if album.story.present? %>
+         / <a rel="leanModal" href="#read_story_modal_<%= album.id %>" class="read-story-style">read story</a>
+        <div id="read_story_modal_<%= album.id %>">
+          <div class="story-modal">
+            <div class="story-modal-heading">
+              <p class="story-modal-heading-style">"<%= album.album_name %>"</p>
+            </div>
+            <div class="story-modal-content">
+              <p><%= album.story %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </p>
+      <% album.uploaded_pictures.each do |picture| %>
+        <%= image_tag picture.photo.url(:medium), class: "picture-timeline", rel: "leanModal", href: "#picture_modal_#{picture.id}", onload: "$(this).fadeIn(1500);" %>
+        <div id="picture_modal_<%= picture.id %>">
+          <%= image_tag picture.photo.url(:large) %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="end-of-albums" album_id="<%= album.id %>">
+      <% if album.user.id == current_user.id %>
+      <div class="end-of-albums-left">
+        <span class="glyphicon glyphicon-trash" rel="leanModal" href="#album_delete_modal_<%= album.id %>"></span>
+        <div id="album_delete_modal_<%= album.id %>" class="delete-album">
+          <div class="delete-modal-padding">
+            <div class="delete-modal-heading">
+              <p>Are you sure you want to delete this album?</p>
+            </div>
+            <div class="delete-modal-content" album_id="<%= album.id %>">
+              <button class="delete-album-button">Delete</button>
+              <button class="cancel-delete">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <div class="end-of-albums-right">
+        <span class="glyphicon glyphicon-heart <%= "liked" if current_user.liked?(album) %>" id="change_like" data-toggle="tooltip" title="<%= album.likes.count %>"></span>     
+        <a href="#" id="popover" class="a-tag" album_id="<%= album.id %>" data-toggle="popover" data-placement="top" data-title="Comments will be shown in Freetalk tab" data-content="<p class='comment-content' contenteditable='true'>@<%= album.album_name %>:</p><span class='popcomment-submit'><a id='popover_comment_submit' user_id='<%= album.user.id %>'>Submit</a></span>" data-html="true">Comment</a>
+      </div>
+    </div>
+
+  </div> <!-- end of album box -->
+  <% end %>
+<% else %>
+  <div id="no_more_albums" class="no-albums" style="margin-top:10px">
+    <span class="glyphicon glyphicon-picture"></span>
+    <h4 class="no-albums-text">No Albums to Show</h4>
+  </div>
+<% end %>

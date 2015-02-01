@@ -1,0 +1,30 @@
+
+<% if @users.present? %>
+  <% @users.each do |user| %>
+    <div class="row search-result">
+    <div class="col-md-1">
+      <%= link_to image_tag(user.image_url, class: "search-result-user-image"), "/users/#{user.nickname}" %>
+    </div>
+    <div class="col-md-9">
+      <%= link_to user.nickname, "/users/#{user.nickname}", class: "all-search-result-nickname" %>
+      <p style="color: #9d9d9d"><%= user.uploaded_albums.count %> albums / <%= user.likes.count %> likes 
+      <% if user.bio.present? %>
+        / <%= truncate(user.bio, length: 40) %>
+      <% end %>
+      </p>
+    </div>
+    <div class="col-md-2" style="text-align: right">
+      <% if current_user.id != user.id %>
+        <button class="switch-follow" user_id="<%= user.id %>">
+          <%= current_user.following?(user.id) ? "Unfollow" : "Follow" %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  <div id="no_user_found" class="no-user-search-result align-center">
+    <span class="glyphicon glyphicon-user"></span>
+    <h4 class="no-user-search-result-text">No Users to Show</h4>
+  </div>
+<% end %>

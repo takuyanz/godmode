@@ -1,0 +1,85 @@
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="comment-outsidest-box">
+      <% if current_user.id != @user.id %>
+      <input id="freetalk_input" class="comment-box" placeholder="Write here! What do you think about albums?">
+      <span class="comment-submit-button-position">
+        <button id="submit_freetalk_comment" class="submit-comment-freetalk">submit</button>
+      </span>
+      <% end %>
+      <div class="all-comments-box">
+        <% if @comments.present? %>
+        <% @comments.each do |comment| %>
+          <div class="each-comment-style comment-box-<%= comment.id %>">
+            <div style="display:table;">
+              <div class="freetalk-first-row">
+                <%= link_to image_tag(comment.user.image_url, class: "freetalk-user-image-style"), comment.user.nickname %>
+              </div>
+              <div class="freetalk-second-row">
+                <%= link_to comment.user.nickname, comment.user.nickname %>
+                <span class="comment-created-at"> <%= comment.created_at.strftime("%X %d/%m") %></span>
+                <% #TODO helper %>
+                <% if comment.user.id == current_user.id  %>
+                  <span class="glyphicon glyphicon-trash" style="font-size: 11px; top:1px" rel="leanModal" href="#comment_delete_modal_<%= comment.id %>"></span> 
+                  <div id="comment_delete_modal_<%= comment.id %>" class="delete-comment">
+                    <div class="delete-modal-padding">
+                      <div class="delete-modal-heading">
+                        <p>Are you sure you want to delete this comment?</p>
+                        <p>All replies will also be deleted.</p>
+                      </div>
+                      <div class="delete-modal-content" comment_id="<%= comment.id %>">
+                        <button class="delete-comment-button">Delete</button>
+                        <button class="cancel-delete">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
+                <p><%= comment.comment %></p>
+                <% if comment.replies.exists? %>
+                  <div class="reply-box">
+                    <a class="show_more_replies show_more_style" reply_num="<%= comment.replies.count %>" comment_id="<%= comment.id %>">show <%= comment.replies.count %> <%= comment.replies.count == 1 ? "reply" : "replies" %></a>
+                    <div id="all_replies_<%= comment.id %>" style="display:none">
+                      <div class="reply-box-style" id="reply-box-for-<%= comment.id %>">
+                      <% comment.replies.each do |reply| %>
+                        <div style="display:table">
+                          <div style="display: table-cell">
+                            <%= image_tag reply.user.image_url, class: "reply-user-image" %>
+                          </div>
+                          <div style="display: table-cell; padding-left: 5px">
+                            <%= link_to reply.user.nickname, reply.user.nickname, class: "reply-nickname-text" %>
+                            <p class="reply-nickname-text"><%= reply.reply_text %></p>
+                          </div>
+                        </div>
+                      <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="freetalk-third-row">
+                <a href="#" class="a-tag freetalk-reply" data-toggle="popover" data-placement="top" data-title="" data-content="<p class='reply-content' contenteditable='true'></p><span class='popcomment-submit'><a id='popover_reply_submit' comment_id='<%= comment.id %>'>Submit</a></span>" data-html="true">reply</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% else %>
+        <div id="no-comment-message">
+          <div class="align-center no-events-to-show-padding">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <% if current_user.id == @user.id %>
+              <h4 class="no-comments-text">No Comments yet</h4>
+            <% else %>
+              <h4 class="no-comments-text">No Comments. Be the First One!</h4>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

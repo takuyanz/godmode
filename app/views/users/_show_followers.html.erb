@@ -1,0 +1,25 @@
+
+<% if @followers.empty? %>
+<div class="no-follow align-center">
+  <span class="glyphicon glyphicon-user"></span>
+  <h4 class="no-follow-text">No Followers</h4>
+</div>
+<% else %>
+  <% @followers.each do |follower| %>
+    <div class="modal-follow-user">
+    <div class="row">
+      <div class="col-md-2">
+        <%= link_to (image_tag follower.image_url, class: "modal-follow-image"), "/users/#{follower.nickname}" %>
+      </div>
+      <div class="col-md-7" style="text-align: left">
+        <%= link_to follower.nickname, "/users/#{follower.nickname}", class: "modal-follow-nickname" %>
+      </div>
+      <div class="col-md-3" style="text-align: left">
+        <span class="switch-follow modal-follow-button" user_id="<%= follower.id %>">
+          <%= current_user.following?(follower.id) ? "Unfollow" : "Follow" %>
+        </span>
+      </div>
+    </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,30 @@
+
+<div class="each-comment-style comment-box-<%= @comment.id %>">
+  <div style="display:table;">
+    <div class="freetalk-first-row">
+      <%= link_to image_tag(@comment.user.image_url, class: "freetalk-user-image-style"), @comment.user.nickname %>
+    </div>
+    <div class="freetalk-second-row">
+      <%= link_to @comment.user.nickname, @comment.user.nickname %>
+      <span class="comment-created-at"> <%= @comment.created_at.strftime("%X %d/%m") %></span>
+      <% #TODO helper method %>
+      <span class="glyphicon glyphicon-trash" style="font-size: 11px; top:1px" rel="leanModal" href="#comment_delete_modal_<%= @comment.id %>"></span> 
+      <div id="comment_delete_modal_<%= @comment.id %>" class="delete-comment">
+        <div class="delete-modal-padding">
+          <div class="delete-modal-heading">
+            <p>Are you sure you want to delete this comment?</p>
+            <p>All replies will also be deleted.</p>
+          </div>
+          <div class="delete-modal-content" comment_id="<%= @comment.id %>">
+            <button class="delete-comment-button">Delete</button>
+            <button class="cancel-delete">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <p><%= @comment.comment %></p>
+    </div>
+    <div class="freetalk-third-row">
+      <a href="#" class="a-tag freetalk-reply" data-toggle="popover" data-placement="top" data-title="" data-content="<p class='reply-content' contenteditable='true'>@<%= @comment.user.nickname %>:</p><span class='popcomment-submit'><a id='popover_reply_submit' comment_id='<%= @comment.id %>'>Submit</a></span>" data-html="true">reply</a>
+    </div>
+  </div>
+</div>

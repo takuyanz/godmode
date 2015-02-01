@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div style="padding-top: 90px">
+    <div class="col-md-4">
+
+      <% ["Show All", "Show Users", "Show Albums"].each do |c| %>
+
+        <div class="search-option-box <%= "search-option-box-active" if params[:c] == c.split[1].downcase %>">
+          <%= link_to "#{c}", search_path(q: params[:q], c: "#{c.split[1].downcase}"), class: "search-option #{"search-option-active" if params[:c] == c.split[1].downcase}"  %>
+        </div>
+        
+      <% end %>
+
+    </div>
+    <div class="col-md-8">
+      <% case params[:c] %>
+      <% when "all" %>
+        <%= render 'show_user_result' %>
+        <%= render 'show_album_result' %>
+      <% when "users" %>
+        <%= render 'show_user_result' %>
+      <% when "albums" %>
+        <%= render 'show_album_result' %>
+      <% end %>
+    </div>
+  </div>
+</div>

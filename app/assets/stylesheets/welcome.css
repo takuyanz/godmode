@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*------- whole --------------*/
+
+.height {
+  height: 100% !important;
+}
+
+.godmode-font {
+  font-family: 'Pacifico', cursive;
+}
+
+/*--------- content --------------*/
+
+.overflow-x {
+  overflow-x: hidden;
+}
+
+.first-col {
+  height: 100%; 
+  position: fixed;
+
+}
+
+.background-image {
+  background-image: url('/assets/bagn.JPG'); 
+  height: 100%; 
+  background-size: cover;
+}
+
+.padding-content {
+  padding-top: 30%;
+  text-align: center
+}
+
+.godmode-title {
+  color: #444444; 
+  font-size: 50px
+}
+
+.second-col {
+  height:100%;
+}
+
+.padding-second-content {
+  padding-top: 30%;
+  overflow-y:auto
+}
+
+.content-width {
+  text-align: center;
+  width: 80%; 
+  margin: 30px auto; 
+  height: auto
+}
+
+.description {
+  font-family: verdana;
+  color: grey;
+  font-size:17px;
+}
+
+.subtitle {
+  font-family: verdana;
+}
+
+/*----------- button ------------*/
+
+button#signin {
+  font-size:16px;
+  font-weight: bold;
+  padding: 6px 10px;
+  background-color:#0c6;
+  color:white;
+  border-style: none;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+button#signin:hover {
+  filter:alpha(opacity=80);
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+

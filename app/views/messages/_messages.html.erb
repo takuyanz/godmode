@@ -1,0 +1,14 @@
+<% if !@messages.present? %>
+  <p class="no-messages-to-show">No messages to show</p>
+<% else%>
+  <% @messages.each do |message| %>
+    <div message_id="<%= message.id %>" class="table-message"> 
+      <%= link_to image_tag(message.user.image_url, class: "message-image"), "/users/#{ message.user.nickname }" %>
+      <div class="message-content-box">
+        <p class="message-nickname"><%= link_to message.user.nickname, "/users/#{message.user.nickname}"  %><span class="message-created-at"> <%= message.created_at.strftime("%X %d/%m") %></span></p>
+        <p class="message-text"><%= raw(message.text) %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

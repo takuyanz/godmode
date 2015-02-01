@@ -1,0 +1,72 @@
+
+/* ---------- timeline ---------- */
+
+.timeline-width {
+  width: 750px;
+  margin: 0 auto;
+}
+
+.timeline-background {
+  background-color: #edeeef; 
+  background-image: url('/assets/gray_jean.png'); 
+  border-right: solid 2px #DCDEDE; 
+  border-left: solid 2px #DCDEDE;
+}
+
+.timeline-padding {
+  padding-top: 100px; 
+  margin-bottom: 50px; 
+  border-bottom: solid 2px #DCDEDE;
+}
+
+.reload-box {
+ padding-bottom: 20px; 
+ text-align: center;
+}
+
+.glyphicon-repeat {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.glyphicon-flash {
+  font-size: 30px; 
+}
+
+.flash-icon-link {
+  color: #31aa62;
+}
+
+.flash-icon-link:hover {
+  color: #0c6;
+}
+
+.no-events-to-show-padding {
+  padding-top: 50px; 
+  padding-bottom: 30px;
+}
+
+.no-events-to-show-text {
+}
+
+.load-more-margin {
+  margin-top: 30px; 
+  margin-bottom: 50px;
+}
+
+.load-more-button {
+  padding: 5px 10px; 
+  color: gray; 
+  font-weight: 900;
+}
+
+.takuya-matsumoto-production {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.takuya-matsumoto-production-link {
+  color: #00a4bb;
+}
+
+
